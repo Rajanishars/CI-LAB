@@ -1,0 +1,18 @@
+
+(defun reverse-number (n)
+  (labels ((rev (n result)
+             (if (= n 0)
+                 result
+                 (rev (floor n 10)
+                      (+ (* result 10) (mod n 10))))))
+    (rev n 0)))
+
+(defun palindrome (n)
+  (if (= n (reverse-number n))
+      (format t "Palindrome~%")
+      (format t "Not Palindrome~%")))
+
+(format t "Enter number: ")
+(setq num (read))
+
+(palindrome num)
